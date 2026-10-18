@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ქართული მოდის სივრცე - ააწყვე შენი აუთფიტი</title>
+    <!-- Google Fonts: Noto Serif Georgian & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif+Georgian:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ზედა ნავიგაციის მენიუ -->
+    <header class="navbar">
+        <div class="logo">მოდა.ჯი</div>
+        <nav class="nav-links">
+            <button class="nav-btn active" data-target="home-section">მთავარი</button>
+            <button class="nav-btn" data-target="styles-section">მოდის სტილები</button>
+            <button class="nav-btn" data-target="catalog-section">ტანსაცმელი</button>
+            <button class="nav-btn" data-target="shoes-section">ფეხსაცმელი</button>
+            <button class="nav-btn" data-target="accessories-section">აქსესუარები</button>
+            <button class="nav-btn" data-target="bags-section">ჩანთები</button>
+            <button class="nav-btn highlight" data-target="builder-section">აუთფიტის აწყობა</button>
+            <button class="nav-btn" data-target="wardrobe-section">ჩემი გარდერობი</button>
+            <button class="nav-btn" data-target="favorites-section">რჩეულები</button>
+        </nav>
+        <div class="search-box-header">
+            <input type="text" id="global-search" placeholder="ძებნა საიტზე...">
+        </div>
+    </header>
+
+    <!-- მთავარი კონტენტი / სექციები -->
+    <main class="main-container">
+
+        <!-- მთავარი გვერდი -->
+        <section id="home-section" class="content-section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>შენი სტილი, შენი წესები</h1>
+                    <p>ააწყვე სასურველი აუთფიტები, შეახამე ტანსაცმელი, ატვირთე შენი ნივთები და შექმენი უნიკალური ლუქები ერთ სივრცეში.</p>
+                    <button class="primary-btn" onclick="switchSection('builder-section')">დაიწყე აუთფიტის აწყობა</button>
+                </div>
+            </div>
+            <div class="featured-categories">
+                <h2>პოპულარული კატეგორიები</h2>
+                <div class="cat-grid">
+                    <div class="cat-card" onclick="navigateToCategory('catalog-section', 'tops')">
+                        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" alt="ტოპები">
+                        <h3>მაისურები და ტოპები</h3>
+                    </div>
+                    <div class="cat-card" onclick="navigateToCategory('catalog-section', 'dresses')">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500" alt="კაბები">
+                        <h3>კაბები</h3>
+                    </div>
+                    <div class="cat-card" onclick="navigateToCategory('bags-section', 'all')">
+                        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500" alt="ჩანთები">
+                        <h3>ჩანთები</h3>
+                    </div>
+                    <div class="cat-card" onclick="navigateToCategory('accessories-section', 'all')">
+                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500" alt="აქსესუარები">
+                        <h3>აქსესუარები</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- მოდის სტილები -->
+        <section id="styles-section" class="content-section">
+            <h2>მოდის სტილები</h2>
+            <p class="section-desc">აირჩიე შენთვის საყვარელი სტილი და დაათვალიერე შესაბამისი კომბინაციები.</p>
+            <div class="styles-grid" id="styles-grid-container">
+                <!-- დინამიურად ივსება JavaScript-ით -->
+            </div>
+        </section>
+
+        <!-- ტანსაცმლის კატალოგი -->
+        <section id="catalog-section" class="content-section">
+            <h2>ტანსაცმლის კატალოგი</h2>
+            <div class="filters-bar">
+                <select id="clothing-cat-filter" class="filter-select">
+                    <option value="all">ყველა კატეგორია</option>
+                    <option value="tops">მაისურები და ტოპები</option>
+                    <option value="shirts">პერანგები და ბლუზები</option>
+                    <option value="sweaters">ჰუდები და სვიტერები</option>
+                    <option value="outerwear">ქურთუკები და პალტოები</option>
+                    <option value="pants">ჯინსები და შარვლები</option>
+                    <option value="skirts">ქვედაბოლოები</option>
+                    <option value="dresses">კაბები</option>
+                    <option value="shorts">შორტები</option>
+                </select>
+                <select id="clothing-style-filter" class="filter-select">
+                    <option value="all">ყველა სტილი</option>
+                    <option value="casual">ყოველდღიური</option>
+                    <option value="elegant">ელეგანტური</option>
+                    <option value="streetwear">ქუჩის სტილი (Streetwear)</option>
+                    <option value="old-money">ძველი ფულის სტილი (Old Money)</option>
+                    <option value="coquette">კოკეტის სტილი (Coquette)</option>
+                </select>
+                <select id="clothing-season-filter" class="filter-select">
+                    <option value="all">ყველა სეზონი</option>
+                    <option value="spring">გაზაფხული</option>
+                    <option value="summer">ზაფხული</option>
+                    <option value="autumn">შემოდგომა</option>
+                    <option value="winter">ზამთარი</option>
+                </select>
+            </div>
+            <div class="items-grid" id="clothing-grid">
+                <!-- ნივთები -->
+            </div>
+        </section>
+
+        <!-- ფეხსაცმელი -->
+        <section id="shoes-section" class="content-section">
+            <h2>ფეხსაცმელი</h2>
+            <div class="items-grid" id="shoes-grid"></div>
+        </section>
+
+        <!-- აქსესუარები -->
+        <section id="accessories-section" class="content-section">
+            <h2>აქსესუარები</h2>
+            <div class="items-grid" id="accessories-grid"></div>
+        </section>
+
+        <!-- ჩანთები -->
+        <section id="bags-section" class="content-section">
+            <h2>ჩანთები</h2>
+            <div class="items-grid" id="bags-grid"></div>
+        </section>
+
+        <!-- აუთფიტის აწყობის სივრცე -->
+        <section id="builder-section" class="content-section">
+            <h2>აუთფიტის აწყობის სივრცე</h2>
+            <p class="section-desc">შეამაჩვიე ზედა, ქვედა ნაწილი, ფეხსაცმელი, ჩანთა და აქსესუარები ერთად.</p>
+            
+            <div class="builder-workspace">
+                <div class="canvas-area">
+                    <div class="mannequin-box">
+                        <div class="slot" data-slot="outerwear">ქურთუკი / პალტო (+)</div>
+                        <div class="slot" data-slot="top">ზედა ნაწილი (+)</div>
+                        <div class="slot" data-slot="bottom">ქვედა ნაწილი (+)</div>
+                        <div class="slot" data-slot="shoes">ფეხსაცმელი (+)</div>
+                        <div class="slot" data-slot="bag">ჩანთა (+)</div>
+                        <div class="slot" data-slot="accessory">აქსესუარი (+)</div>
+                    </div>
+                    <div class="builder-actions">
+                        <button class="secondary-btn" onclick="randomizeOutfit()">შემთხვევითი ლუქი</button>
+                        <button class="secondary-btn" onclick="clearOutfit()">გასუფთავება</button>
+                        <button class="primary-btn" onclick="saveOutfit()">აუთფიტის შენახვა</button>
+                    </div>
+                </div>
+                <div class="picker-area">
+                    <h3>აირჩიე ნივთი დასამატებლად:</h3>
+                    <div class="picker-tabs">
+                        <button class="tab-btn active" onclick="filterPicker('all')">ყველა</button>
+                        <button class="tab-btn" onclick="filterPicker('top')">ზედა</button>
+                        <button class="tab-btn" onclick="filterPicker('bottom')">ქვედა</button>
+                        <button class="tab-btn" onclick="filterPicker('shoes')">ფეხსაცმელი</button>
+                        <button class="tab-btn" onclick="filterPicker('bag')">ჩანთა</button>
+                        <button class="tab-btn" onclick="filterPicker('accessory')">აქსესუარი</button>
+                    </div>
+                    <div class="picker-items-grid" id="picker-items">
+                        <!-- ამოსარჩევი ნივთები -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ჩემი გარდერობი -->
+        <section id="wardrobe-section" class="content-section">
+            <div class="wardrobe-header">
+                <h2>ჩემი გარდერობი</h2>
+                <button class="primary-btn" onclick="openUploadModal()">+ საკუთარი ნივთის დამატება</button>
+            </div>
+            <p class="section-desc">შენი ატვირთული ტანსაცმელი, ფეხსაცმელები და აქსესუარები.</p>
+            <div class="items-grid" id="user-wardrobe-grid">
+                <!-- მომხმარებლის დამატებული ნივთები -->
+            </div>
+        </section>
+
+        <!-- რჩეული აუთფიტები -->
+        <section id="favorites-section" class="content-section">
+            <h2>რჩეული აუთფიტები</h2>
+            <p class="section-desc">შენ მიერ შენახული ლუქები და კოლექციები.</p>
+            <div class="favorites-grid" id="saved-outfits-grid">
+                <!-- შენახული აუთფიტები -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ფოტოს ატვირთვის / კამერის მოდალური ფანჯარა -->
+    <div id="upload-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeUploadModal()">&times;</span>
+            <h2>საკუთარი ნივთის დამატება</h2>
+            <form id="upload-form" onsubmit="handleItemUpload(event)">
+                <div class="form-group">
+                    <label>ნივთის დასახელება:</label>
+                    <input type="text" id="item-name" required placeholder="მაგ: ვარდისფერი პიჯაკი">
+                </div>
+                <div class="form-group">
+                    <label>კატეგორია:</label>
+                    <select id="item-category">
+                        <option value="top">მაისურები და ტოპები</option>
+                        <option value="bottom">ჯინსები და შარვლები</option>
+                        <option value="outerwear">ქურთუკები და პალტოები</option>
+                        <option value="shoes">ფეხსაცმელი</option>
+                        <option value="bag">ჩანთა</option>
+                        <option value="accessory">აქსესუარი</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>ფოტოს ატვირთვა გალერეიდან ან კამერით:</label>
+                    <input type="file" id="item-file" accept="image/*" required>
+                </div>
+                <div class="image-preview-box" id="image-preview">
+                    <span>ფოტოს წინასწარი ნახაზი</span>
+                </div>
+                <button type="submit" class="primary-btn" style="width: 100%; margin-top: 15px;">გარდერობში დამატება</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
